@@ -1,0 +1,25 @@
+<!-- myapp/templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>M-Pesa Payment Integration</h1>
+    <form method="POST" action="{% url 'stk-push' %}">
+        {% csrf_token %}
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone_number"><br><br>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount"><br><br>
+        <label for="account_reference">Account Reference:</label>
+        <input type="text" id="account_reference" name="account_reference"><br><br>
+        <label for="transaction_desc">Transaction Description:</label>
+        <input type="text" id="transaction_desc" name="transaction_desc"><br><br>
+        <button type="submit">Pay</button>
+    </form>
+</body>
+</html>
